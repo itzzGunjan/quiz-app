@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+A modern, responsive quiz application built with React that fetches trivia questions from the Open Trivia Database API. Test your knowledge with timed questions, track your progress, and see detailed results!
+Core Features
+              Interactive Quiz Interface: Clean, user-friendly design that works on desktop and mobile
+              Timed Questions: 30-second timer per question with auto-advance
+              Progress Tracking: Visual progress bar and real-time score display
+              Fully Responsive: Optimized for all screen sizes
+              Modern UI: Beautiful gradient backgrounds and smooth animation
+Advanced Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ API Integration: Fetches real trivia questions from Open Trivia Database
+ Difficulty Levels: Easy, Medium, Hard, or Mixed difficulty options
+Smart Fallback: Local questions if API is unavailable
+Detailed Results: Complete breakdown of answers with explanations
+Accessibility: Keyboard navigation and screen reader support
+Error Handling: Graceful handling of network issues and edge cases
+Installation
 
-## Available Scripts
+Clone or Download the Project
+bash# Option 1: If you have the files
+cd your-quiz-app-folder
 
-In the project directory, you can run:
+# Option 2: Create new React app and add the code
+npx create-react-app quiz-app
+cd quiz-app
 
-### `npm start`
+Replace App.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Copy the quiz app code from the provided file
+Replace the contents of src/App.js with the quiz app code
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Install Dependencies (if creating new project)
+bashnpm install
+# or
+yarn install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Start the Development Server
+bashnpm start
+# or
+yarn start
 
-### `npm run build`
+Open Your Browser
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navigate to http://localhost:3000
+The app should load with the quiz start screen
+API Configuration
+The app uses the Open Trivia Database API. You can modify the API parameters in the code:
+const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&type=multiple${difficultyParam}`);
+Customizable Settings
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Question Count: Change the amount parameter (default: 8)
+Timer Duration: Modify setTimeLeft(30) to change seconds per question
+Difficulty Options: Add/remove difficulty levels in the select dropdown
+Fallback Questions: Add your own questions to the fallbackQuestions array
+Open Trivia Database
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+URL: https://opentdb.com/
+Endpoint: https://opentdb.com/api.php
+Type: Free, no authentication required
+Rate Limits: Reasonable usage (no explicit limits)
 
-### `npm run eject`
+API Parameters Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+amount: Number of questions (default: 8)
+type: Question type (fixed to "multiple" for multiple choice)
+difficulty: easy, medium, or hard (optional)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+API Response Handling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Decodes HTML entities (&quot;, &#039;, etc.)
+Shuffles answer options randomly
+Handles various API response codes
+Falls back to local questions on failure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🛠 Development
+Available Scripts
+bash# Start development server
+npm start
 
-## Learn More
+# Build for production
+npm run build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Run tests
+npm test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Eject from Create React App (advanced)
+npm run eject
